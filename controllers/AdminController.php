@@ -73,6 +73,29 @@ class AdminController
     }
 
     /**
+     * Affiche les commentaires d'un article.
+     * @return void
+     */
+    public function showCommentsByArticle(): void
+    {
+        $this->checkIfUserIsConnected();
+
+        $id = Utils::request("id");
+
+        $articleManager = new ArticleManager();
+        $article = $articleManager->getArticleById($id);
+
+        $commentManager = new CommentManager();
+        $comments = $commentManager->getAllCommentsByArticleId($id);
+
+        $view = new View("Comments");
+        $view->render("comments", [
+            "article" => $article,
+            'comments' => $comments
+        ]);
+    }
+
+    /**
      * Vérifie que l'utilisateur est connecté.
      * @return void
      */

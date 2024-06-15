@@ -73,6 +73,13 @@ form {
     background-color: var(--commentPaleColor);
 }
 
+form.no-style {
+    padding: 0;
+    background-color: transparent;
+    margin-top: 0;
+    color: black;
+}
+
 form h2 {
     margin: 0 0 20px 0;
     color: white;
@@ -111,6 +118,7 @@ form .formGrid .submit {
     color: white;
     background-color: var(--commentColor);
     border: none;
+    cursor: pointer;
 }
 
 /**

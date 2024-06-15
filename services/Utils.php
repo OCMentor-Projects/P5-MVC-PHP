@@ -95,10 +95,16 @@ class Utils
      * @return string : l'URL générée.
      * @example : Utils::route('showArticle', ['id' => 5]) retournera "index.php?action=showArticle&id=5"
      */
-    public static function route(string $name, array $params): string
+    public static function route(string $name, array $params = []): string
     {
         $url = "index.php?action=$name";
+
+        if (empty($params)) {
+            return $url;
+        }
+
         $params = http_build_query($params);
+
         return $url . "&" . $params;
     }
 

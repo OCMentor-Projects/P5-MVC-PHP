@@ -49,6 +49,16 @@ try {
             $adminController->showDashboard();
             break;
 
+        case 'comments':
+            $adminController = new AdminController();
+            $adminController->showCommentsByArticle();
+            break;
+
+        case 'deleteComment':
+            $commentController = new CommentController();
+            $commentController->deleteComment();
+            break;
+
         case 'connectionForm':
             $adminController = new AdminController();
             $adminController->displayConnectionForm();

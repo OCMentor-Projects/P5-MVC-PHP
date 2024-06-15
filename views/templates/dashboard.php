@@ -34,7 +34,7 @@ $invertSortDirection = $sortDirection == "ASC" ? "DESC" : "ASC";
                     <td><?= $article->getTitle() ?></td>
                     <td><?= $article->getContent(200) ?></td>
                     <td><?= $article->getViewed() ?></td>
-                    <td><?= $article->getCommentNumber() ?></td>
+                    <td><a class="submit" href="<?= Utils::route("comments", ["id" => $article->getId()]) ?>"><?= $article->getCommentNumber() ?></a></td>
                     <td><?= date("d/m/Y H:i", $article->getDateCreation()->getTimestamp()) ?></td>
                 </tr>
             <?php } ?>
